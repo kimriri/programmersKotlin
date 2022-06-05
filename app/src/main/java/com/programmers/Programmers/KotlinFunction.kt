@@ -1,5 +1,7 @@
 package com.programmers.Programmers
 
+import kotlin.system.exitProcess
+
 
 class KotlinFunction {
 
@@ -60,7 +62,15 @@ class KotlinFunction {
    fun Map() {
       val maps = arrayOf("A" to 1000,"B" to 2000, "C" to 3000 to 4000)
       println(maps.toMap())
-
    }
-
+   /** 출력 결과
+    * Filter는 2
+    * Filter는 3
+    * */
+   fun Filter() {
+      val Filter = listOf(1,2,3).filter { it != 1 }
+      for(i in Filter.indices) {
+         println("Filter는 ${Filter[i]}")
+      }
+   }
 }

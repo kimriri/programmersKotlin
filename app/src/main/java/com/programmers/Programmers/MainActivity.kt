@@ -17,6 +17,7 @@ class MainActivity() : AppCompatActivity() {
         mKotlinFunction.GroupBy()
         mKotlinFunction.AsSequence()
         mKotlinFunction.Map()
+        mKotlinFunction.Filter()
 
     }
 
