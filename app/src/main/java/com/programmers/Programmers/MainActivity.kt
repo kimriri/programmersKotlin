@@ -18,7 +18,7 @@ class MainActivity() : AppCompatActivity() {
         mKotlinFunction.AsSequence()
         mKotlinFunction.Map()
         mKotlinFunction.Filter()
-
+        mKotlinFunction.GroupingBy()
     }
 
      init {

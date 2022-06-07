@@ -73,4 +73,20 @@ class KotlinFunction {
          println("Filter는 ${Filter[i]}")
       }
    }
+   /**
+    * 특정 조건에 맞춰 배열을 재정렬 한다.? groupingBy{ 이 조건을 기준으로 },.eachCount() <- 수량을 Count 한다.
+    * 출력 결과
+    * Filter는 2
+    * Filter는 3
+    * */
+   fun GroupingBy() {
+      val words = "코 틀 린 코틀 코틀린 틀린코 틀코린 린코틀 린틀코".split(' ')
+      val frequenciesByFirstChar = words.groupingBy { it.first() }.eachCount()
+      println("Counting first letters:")
+      println(frequenciesByFirstChar)
+
+      val moreWords = "eleven twelve".split(' ')
+      val moreFrequencies = moreWords.groupingBy { it.first() }.eachCountTo(frequenciesByFirstChar.toMutableMap())
+      println(moreFrequencies)
+   }
 }
