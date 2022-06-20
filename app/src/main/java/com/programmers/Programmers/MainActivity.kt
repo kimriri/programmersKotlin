@@ -2,6 +2,7 @@ package com.programmers.Programmers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import java.util.regex.Pattern
 
 class MainActivity() : AppCompatActivity() {
@@ -34,7 +35,7 @@ class MainActivity() : AppCompatActivity() {
 //        ReportStr.add("muzi neo")
 //        ReportStr.add("apeach muzi ")
 //        solution(UserListStr,ReportStr,2)
-         solution3("...Q.w/eq__%..t6...")
+         solution3("..  234#|,,..")
 
     }
 
@@ -124,27 +125,28 @@ class Solutio1n {
 
 
 
-    fun solution3(new_id: String): String {
-        var answer = new_id.lowercase()
-        val idPattern = "^(?=.*[a-z])(?=.*[-])(?=.*[_])(?=.*[.])$"
-        val pattern = Pattern.compile(idPattern) // 패턴 컴파일
-
-        for(i in answer.indices-1) {
-            val matcher = pattern.matcher(answer[i].toString())
-            if(matcher.find()
-             //   ||(answer[i+1].toString() == "." && answer[i+2].toString() == "." )
-                ||answer.first().toString() == "."
-                ||answer.last().toString() == "."
-            ) {
-                answer = answer.replace(answer[i].toString(),"")
-            }
-
-
-
-        }
-
-        return answer
+    fun solution3(new_id: String) : String {
+        return new_id
+            .stageOne()
+            .stageTwo()
+            .stageThree()
+            .stageFour()
+            .stageFive()
+            .stageSix()
+            .stageSeven()
     }
+
+
+
+            fun String.stageOne() = this.toLowerCase()
+            fun String.stageTwo() = this.filter { it.isLetter().or(it.isDigit()).or(it == '.').or(it == '_').or(it == '-') }
+            fun String.stageThree() = this.replace(Regex("[.]+"), ".")
+            fun String.stageFour() = this.filterIndexed { index, c -> (index != 0 || c != '.') && (index != this.lastIndex || c != '.') }
+            fun String.stageFive() = if (this == "") this + "a" else this
+            fun String.stageSix() = if (this.length >= 16) this.substring(0..14).filterIndexed { index, c -> !(index == 14 && c == '.')} else this
+            fun String.stageSeven() = if (this.length <= 2) this + this.last().toString().repeat(3 - this.length) else this
+
+
 
 
 
