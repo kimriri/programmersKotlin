@@ -3,7 +3,9 @@ package com.programmers.Programmers
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import java.util.*
 import java.util.regex.Pattern
+import kotlin.collections.ArrayList
 
 class MainActivity() : AppCompatActivity() {
 
@@ -35,7 +37,8 @@ class MainActivity() : AppCompatActivity() {
 //        ReportStr.add("muzi neo")
 //        ReportStr.add("apeach muzi ")
 //        solution(UserListStr,ReportStr,2)
-         solution3("..  234#|,,..")
+         solution3("..  23ㅂㅈ슏ㄱㅅㅈㅍ댓" +
+                 "ㄷㅅㅍ,ㅑ34224ㄹㅁㄴㅇㄹㄷ3#|,,..")
 
     }
 
@@ -136,10 +139,13 @@ class Solutio1n {
             .stageSeven()
     }
 
-
-
-            fun String.stageOne() = this.toLowerCase()
-            fun String.stageTwo() = this.filter { it.isLetter().or(it.isDigit()).or(it == '.').or(it == '_').or(it == '-') }
+            fun String.stageOne() = this.lowercase(Locale.getDefault())
+            fun String.stageTwo() = this.filter {
+                it.isLetter()
+                    .or(it.isDigit())
+                    .or(it == '.')
+                    .or(it == '_')
+                    .or(it == '-') }
             fun String.stageThree() = this.replace(Regex("[.]+"), ".")
             fun String.stageFour() = this.filterIndexed { index, c -> (index != 0 || c != '.') && (index != this.lastIndex || c != '.') }
             fun String.stageFive() = if (this == "") this + "a" else this
