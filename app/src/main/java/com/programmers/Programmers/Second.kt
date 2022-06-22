@@ -1,6 +1,7 @@
 package com.programmers.Programmers
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 class Second  : AppCompatActivity() {
@@ -14,8 +15,12 @@ class Second  : AppCompatActivity() {
 
     init {
         solution("11");
+        solution2(intArrayOf(123))
+        Log.e("ddd", solution2(intArrayOf(123)).toString())
+
 
     }
+
     fun solution(s: String): Int {
         var answer: Int = 0
         fun solution(s: String): Int {
@@ -31,7 +36,7 @@ class Second  : AppCompatActivity() {
             strNum = strNum.replace("eight", "8")
             strNum = strNum.replace("nine", "9")
 
-          val answer = strNum.toInt()
+            val answer = strNum.toInt()
             return answer
         }
 
@@ -57,11 +62,20 @@ class Second  : AppCompatActivity() {
         return answer
     }
 
+    /** n+n+1, n+n+2 ,,,,,
+     *
+     *
+     */
 
-
-
-
-
-
-
+    fun solution2(numbers: IntArray): IntArray {
+        val list = numbers.toList()
+        return list.withIndex().flatMap { i -> list.withIndex().map { j -> i to j } }
+            .filter { it.first.index != it.second.index }
+            .map { it.first.value + it.second.value }
+            .toSortedSet()
+            .toIntArray()
+    }
 }
+
+
+
