@@ -3,6 +3,7 @@ package com.programmers.Programmers
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.math.round
 
 class Second  : AppCompatActivity() {
 
@@ -16,6 +17,7 @@ class Second  : AppCompatActivity() {
     init {
         solution("11");
         solution2(intArrayOf(123))
+        solution3(intArrayOf(1,2,3,4))
         Log.e("ddd", solution2(intArrayOf(123)).toString())
 
 
@@ -63,8 +65,6 @@ class Second  : AppCompatActivity() {
     }
 
     /** n+n+1, n+n+2 ,,,,,
-     *
-     *
      */
 
     fun solution2(numbers: IntArray): IntArray {
@@ -75,7 +75,19 @@ class Second  : AppCompatActivity() {
             .toSortedSet()
             .toIntArray()
     }
+    /**
+     *
+     * size = 3
+     * size/2 = 1
+     * 3/2 =
+     */
+        // 입력된 수의 평균값 구하기
+    fun solution3(arr: IntArray): Double    {
+        Log.e("리턴", arr.average().toString())
+        return arr.average()
+    }
 }
+
 
 
 
