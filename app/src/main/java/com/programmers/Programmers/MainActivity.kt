@@ -158,30 +158,49 @@ class Solutio1n {
 
 
 
-        //가운데 글자 가져 오기
-    fun solution(s: String): String {
-
-        val a = s.length
-        var answer = ""
-        if (a % 2 == 0) {
-           val A =  a/2
-            answer = s[A-1].toString() + s[A].toString()
-
-        }
-        if (a % 2 != 0) {
-            val A =  a/2
-            answer = s[A].toString()
-
-
-
-        }
-            return answer
-        }
+//        //가운데 글자 가져 오기
+//    fun solution(s: String): String {
+//
+//        val a = s.length
+//        var answer = ""
+//        if (a % 2 == 0) {
+//           val A =  a/2
+//            answer = s[A-1].toString() + s[A].toString()
+//
+//        }
+//        if (a % 2 != 0) {
+//            val A =  a/2
+//            answer = s[A].toString()
+//
+//
+//
+//        }
+//            return answer
+//        }
 
 //가운데 글자 가져 오기
-class Solution {
+/**
+ * substring : 특정 문자열을 잘라서 출력 표시
+ * 해석
+ * 1,만약 s 가 abcde 일 경우
+ * length = 5
+ * length / 2 - 1  + (length % 2)  == 5/2 -1 + (1) == 2 - 1 + (1) == 2
+ *  .. 은 범위를 나타낸다. 그러므로 2 ~
+ *  length/2 = 2
+*  그러므로 2 ~ @
+ *  2,만약 s 가 abcd 일 경우
+ * length = 4
+ * length / 2 - 1  + (length % 2)  == 4/2 - 1  + 0 = 3
+ *그러므로 3 ~ 2
+ * length / 2 = 2
+ *
+ *
+ * */
+
     fun solution(s: String) =
-        with(s) { substring(length / 2 - 1 +
-                (length % 2) .. length / 2) }
-}
+        with(s) { substring(length / 2 - 1  + (length % 2) .. length / 2) }
+
+
+
+
 
