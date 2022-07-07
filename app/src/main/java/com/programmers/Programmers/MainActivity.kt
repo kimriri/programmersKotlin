@@ -22,6 +22,8 @@ class MainActivity() : AppCompatActivity() {
        // mKotlinFunction.Map()
        // mKotlinFunction.Filter()
        // mKotlinFunction.GroupingBy()
+
+        solution("qwedf")
     }
 
      init {
@@ -155,4 +157,31 @@ class Solutio1n {
 
 
 
+
+        //가운데 글자 가져 오기
+    fun solution(s: String): String {
+
+        val a = s.length
+        var answer = ""
+        if (a % 2 == 0) {
+           val A =  a/2
+            answer = s[A-1].toString() + s[A].toString()
+
+        }
+        if (a % 2 != 0) {
+            val A =  a/2
+            answer = s[A].toString()
+
+
+
+        }
+            return answer
+        }
+
+//가운데 글자 가져 오기
+class Solution {
+    fun solution(s: String) =
+        with(s) { substring(length / 2 - 1 +
+                (length % 2) .. length / 2) }
+}
 
