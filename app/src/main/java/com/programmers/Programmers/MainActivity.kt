@@ -197,10 +197,22 @@ class Solutio1n {
  *
  * */
 
-    fun solution(s: String) =
-        with(s) { substring(length / 2 - 1  + (length % 2) .. length / 2) }
+//    fun solution(s: String) =
+//        with(s) { substring(length / 2 - 1  + (length % 2) .. length / 2) }
+//
+//// 홀수와 짝수 구하기
+//    fun solution(num: Int): String {
+//    var answer = ""
+//    answer = if(num % 2 == 0)  "Even" else "Odd"
+//        return answer
+//    }
 
+    //
 
-
-
-
+// 홀수와 짝수 구하기
+    fun solution(num: Int): String {
+        return when(num % 2) {
+            0 -> "Even"
+            else -> "Odd"
+        }
+    }
