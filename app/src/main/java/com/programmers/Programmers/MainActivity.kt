@@ -219,21 +219,37 @@ class Solutio1n {
 
     
     
-    class Solution33 {
-    public int[] solution(int[] arr) {
-        int[] answer = new int[arr.length-1];
-        int min = arr[0];
-        int idx = 0;
-        
-        for(int i = 1; i < arr.length; i++){
-            if(min > arr[i]) min = arr[i];
-        }
-        
-        for(int i = 0; i < arr.length; i++){
-            if(min == arr[i]) continue;
-            answer[idx++] = arr[i];
-        }
-        
-        return answer.length == 0 ? new int[]{-1} : answer;
+//    class Solution33 {
+//    public int[] solution(int[] arr) {
+//        int[] answer = new int[arr.length-1];
+//        int min = arr[0];
+//        int idx = 0;
+//
+//        for(int i = 1; i < arr.length; i++){
+//            if(min > arr[i]) min = arr[i];
+//        }
+//
+//        for(int i = 0; i < arr.length; i++){
+//            if(min == arr[i]) continue;
+//            answer[idx++] = arr[i];
+//        }
+//
+//        return answer.length == 0 ? new int[]{-1} : answer;
+//    }
+//}
+
+
+
+/// 멀쩡한 사각형
+class Solution {
+    fun gcd(a: Int, b: Int): Long {
+        if (a == 0) return b.toLong()
+        return gcd(b % a, a)
+    }
+
+    fun solution(w: Int, h: Int): Long {
+        var wl = w.toLong()
+        var hl = h.toLong()
+        return wl * hl - wl - hl + gcd(w, h)
     }
 }
